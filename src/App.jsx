@@ -3,7 +3,7 @@ import Layout from "./layouts/Layout";
 import Error404 from "./pages/Error404";
 import Home from "./pages/Dasboard/home";
 import OrderUpload from "./pages/Dasboard/OrderUpload";
-import "./index.css"
+import "./index.css";
 
 function App() {
   return (

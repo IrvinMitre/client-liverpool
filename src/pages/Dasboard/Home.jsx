@@ -5,6 +5,7 @@ const Home = () => {
   const [orders, setOrders] = useState([]);
   const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
+  const [count, setCount] = useState(0);
   const limit = 7;
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const Home = () => {
     try {
       const result = await OrderService.listOrders(limit, offset);
       setOrders(result.orders);
+      setCount(result.count);
     } catch (error) {
       alert("Error opteniendo la información");
     }
@@ -109,7 +111,7 @@ const Home = () => {
         <button
           className="paginatorButton"
           onClick={() => handlePagination(offset + limit, 1)}
-          disabled={orders.length < offset}
+          disabled={orders.length < offset || count === limit}
         >
           Siguiente
         </button>

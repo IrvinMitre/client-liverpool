@@ -5,14 +5,18 @@
 
 .header-configured {
   height: 8vh;
+  background-color: #e10098;
 }
 
 .sidbar-configured {
   background-color: #f7a0c7;
 }
 
-.header-configured {
-  background-color: #e10098;
+.element-sidebar {
+  color: #ddd;
+  margin-top: 20px;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 .order-table {
@@ -34,7 +38,7 @@
   background-color: #f2f2f2;
 }
 
-.pure-table tbody tr:hover {
+.order-table tbody tr:hover {
   background-color: #f5f5f5;
 }
 
@@ -56,13 +60,12 @@
   background-color: #b80080;
 }
 
-.paginatorButtonStyle {
+.paginatorButton {
   font-size: "14px";
   cursor: "pointer";
-  margin-top: 50px;
 }
 
-.currentPageStyle {
+.currentPage {
   font-weight: "bold";
   font-size: "16px";
 }
@@ -72,7 +75,6 @@
   padding: 20px;
   color: white;
   cursor: pointer;
-
 }
 
 .paginator {
@@ -94,8 +96,3 @@
     margin-right: 5px;
   }
 }
-
-
-
-
-

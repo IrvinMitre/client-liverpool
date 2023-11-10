@@ -37,7 +37,7 @@ const OrderService = {
       params,
     });
     return orders.data;
-  }
+  },
 };
 
 export default OrderService;

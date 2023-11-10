@@ -25,7 +25,7 @@ const OrderUpload = () => {
 
   return (
     <div className="p-8 rounded-xl">
-      <h1 className="text-3xl mb-4">Cargar Excel de Órdenes</h1>
+      <h1 className="text-3xl mb-4">Cargar Excel de Ordenes</h1>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="fileInput" className="block mb-2">
