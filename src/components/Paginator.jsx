@@ -1,6 +1,12 @@
+
 import React from "react";
 
 const Paginator = ({ handlePagination, offset, page, limit, count }) => {
+  // Don't render the paginator if count is 0
+  if (count === 0) {
+    return null;
+  }
+
   return (
     <div className="paginator">
       <button

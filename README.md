@@ -31,4 +31,4 @@ To run this Client, you'll need to follow these steps:
 
 4. Click in sidebar in Order can upload a file csv to save orders
 
-I plan to integrate a modal-based notification system to provide users with a more interactive and informative experience
+I planned to integrate a modal-based notification system to provide users with a more interactive and informative experience, but I didn't have time.
