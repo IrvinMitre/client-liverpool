@@ -3,6 +3,7 @@ import OrderService from "../../services/orderService";
 
 const Home = () => {
   const [orders, setOrders] = useState([]);
+  const [page, setPage] = useState(1);
   const [offset, setOffset] = useState(0);
   const limit = 7;
 
@@ -19,7 +20,8 @@ const Home = () => {
     }
   };
 
-  const handlePagination = (newOffset) => {
+  const handlePagination = (newOffset, pageCount) => {
+    setPage(page + pageCount);
     fetchData(newOffset);
     setOffset(newOffset);
   };
@@ -28,7 +30,8 @@ const Home = () => {
     try {
       await OrderService.updateOrder(id);
       fetchData(offset);
-      fetchData(); // Refresh data after updating order
+      setPage(1);
+      setOffset(0);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +41,8 @@ const Home = () => {
     try {
       await OrderService.deleteOrder(id);
       fetchData(offset);
-      fetchData(); // Refresh data after deleting order
+      setPage(1);
+      setOffset(0);
     } catch (error) {
       console.log(error);
     }
@@ -96,15 +100,15 @@ const Home = () => {
       <div className="paginator">
         <button
           className="paginatorButtonStyle"
-          onClick={() => handlePagination(offset - 1)}
+          onClick={() => handlePagination(offset - limit, -1)}
           disabled={offset == 0}
         >
           Anterior
         </button>
-        <span className="currentPageStyle"> Page {offset + 1} </span>
+        <span className="currentPageStyle"> Page {page} </span>
         <button
           className="paginatorButtonStyle"
-          onClick={() => handlePagination(offset + 1)}
+          onClick={() => handlePagination(offset + limit, 1)}
           disabled={orders.length < offset}
         >
           Siguiente

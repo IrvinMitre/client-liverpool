@@ -7,9 +7,9 @@ const Sidebar = () => {
 
 
   return (
-    <div className="sidebar-configured">
+    <div className="xl:h-[95vh] sidebar-configured">
       <h2 onClick={() => navigate('/')} >Home</h2>
-      <h1 onClick={() => navigate('/uploadFile')}>Form</h1>
+      <h1 onClick={() => navigate('/uploadFile')}>Ordenes</h1>
     </div>
   );
 };
