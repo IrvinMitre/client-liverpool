@@ -1,5 +1,8 @@
+// Home.js
 import React, { useState, useEffect } from "react";
 import OrderService from "../../services/orderService";
+import TableOrders from "../../components/TableOrders";
+import Paginator from "../../components/Paginator";
 
 const Home = () => {
   const [orders, setOrders] = useState([]);
@@ -18,7 +21,7 @@ const Home = () => {
       setOrders(result.orders);
       setCount(result.count);
     } catch (error) {
-      alert("Error opteniendo la información");
+      alert("Error obteniendo la información");
     }
   };
 
@@ -46,7 +49,7 @@ const Home = () => {
       setPage(1);
       setOffset(0);
     } catch (error) {
-      alert("Error Eliminando orden");
+      alert("Error eliminando orden");
     }
   };
 
@@ -61,61 +64,19 @@ const Home = () => {
 
   return (
     <div>
-      <table className="order-table">
-        <thead>
-          <tr>
-            <th>Descripcion</th>
-            <th>Fecha alta</th>
-            <th>Fecha Baja</th>
-            <th>Usuario</th>
-            <th>Estatus</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order, index) => (
-            <tr key={index}>
-              <td>{order.description}</td>
-              <td>{formatDate(order.created_at)}</td>
-              <td>{formatDate(order.down_at)}</td>
-              <td>{order.user}</td>
-              <td>{order.status}</td>
-              <td>
-                <button
-                  className="order-button"
-                  disabled={order.status === "completed"}
-                  onClick={() => handleUpdateOrder(order._id)}
-                >
-                  Completar
-                </button>
-                <button
-                  className="order-button"
-                  onClick={() => handleDeleteOrder(order._id)}
-                >
-                  Borrar
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="paginator">
-        <button
-          className="paginatorButton"
-          onClick={() => handlePagination(offset - limit, -1)}
-          disabled={offset == 0}
-        >
-          Anterior
-        </button>
-        <span className="currentPage"> Page {page} </span>
-        <button
-          className="paginatorButton"
-          onClick={() => handlePagination(offset + limit, 1)}
-          disabled={orders.length < offset || count === limit}
-        >
-          Siguiente
-        </button>
-      </div>
+      <TableOrders
+        orders={orders}
+        handleUpdateOrder={handleUpdateOrder}
+        handleDeleteOrder={handleDeleteOrder}
+        formatDate={formatDate}
+      />
+      <Paginator
+        handlePagination={handlePagination}
+        offset={offset}
+        page={page}
+        limit={limit}
+        count={count}
+      />
     </div>
   );
 };

@@ -1,51 +1,18 @@
 import React, { useState } from "react";
-import OrderService from "../../services/orderService";
+import FormFile from "../../components/FormFile";
 
 const OrderUpload = () => {
-  const [file, setFile] = useState(null);
-
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
+  const handleUploadSuccess = (message) => {
+    alert(message);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (file) {
-      try {
-        await OrderService.createOrders(file);
-        alert("Ordenes cargadas exitosamente");
-      } catch (error) {
-        alert("Por favor, selecciona un archivo valido.");
-      }
-    } else {
-      alert("Por favor, selecciona un archivo antes de enviar.");
-    }
+  const handleUploadError = (errorMessage) => {
+    alert(errorMessage);
   };
 
   return (
-    <div className="p-8 rounded-xl">
-      <h1 className="text-3xl mb-4">Cargar Excel de Ordenes</h1>
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="fileInput" className="block mb-2">
-          Selecciona un archivo CSV:
-        </label>
-        <input
-          type="file"
-          id="fileInput"
-          accept=".csv"
-          onChange={handleFileChange}
-          className="mb-4"
-        />
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded"
-        >
-          Enviar
-        </button>
-      </form>
+    <div>
+      <FormFile onSuccess={handleUploadSuccess} onError={handleUploadError} />
     </div>
   );
 };

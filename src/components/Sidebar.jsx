@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -12,28 +11,31 @@ const Sidebar = () => {
   return (
     <div>
       <div className="sidbar-configured xl:h-[100vh] overflow-y-scroll fixed xl:static w-full h-full -left-full top-0 p-8">
-        <p className="element-sidebar" onClick={() => {navigate("/")}}>
+        <Link className="element-sidebar block" to="/">
           Home
-        </p>
-        <p className="element-sidebar" onClick={() => navigate("/uploadFile")}>
+        </Link>
+
+        <Link className="element-sidebar block" to="/uploadFile">
           Ordenes
-        </p>
+        </Link>
       </div>
-      <div className="xl:hidden bg-red">
-        <button className="text-black p-2" onClick={toggleMenu}>
+      <div className="sidbar-menu xl:hidden">
+        <button className="p-2" onClick={toggleMenu}>
           Menu
         </button>
         {isOpen && (
           <div className="sidbar-configured fixed w-full h-full left-0 top-0 bg-red p-8">
-            <p className="element-sidebar" onClick={() => {toggleMenu(); navigate("/")}}>
+            <Link className="element-sidebar block" to="/" onClick={toggleMenu}>
               Home
-            </p>
-            <p
-              className="element-sidebar"
-              onClick={() => {toggleMenu(); navigate("/uploadFile")}}
+            </Link>
+
+            <Link
+              className="element-sidebar block"
+              to="/uploadFile"
+              onClick={toggleMenu}
             >
               Ordenes
-            </p>
+            </Link>
           </div>
         )}
       </div>
