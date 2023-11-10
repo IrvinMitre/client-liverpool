@@ -27,7 +27,7 @@ To run this Client, you'll need to follow these steps:
    npm run dev
    ```
 
-3. Enter in broser to local http://localhost:5173/
+3. Enter in browser to local http://localhost:5173/
 
 4. Click in sidebar in Order can upload a file csv to save orders
 
