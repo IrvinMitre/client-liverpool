@@ -12,7 +12,12 @@ const OrderUpload = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (file) {
-      await OrderService.createOrders(file);
+      try {
+        await OrderService.createOrders(file);
+        alert("Ordenes cargadas exitosamente");
+      } catch (error) {
+        alert("Por favor, selecciona un archivo valido.");
+      }
     } else {
       alert("Por favor, selecciona un archivo antes de enviar.");
     }

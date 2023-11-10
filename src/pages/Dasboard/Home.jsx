@@ -16,7 +16,7 @@ const Home = () => {
       const result = await OrderService.listOrders(limit, offset);
       setOrders(result.orders);
     } catch (error) {
-      console.log(error);
+      alert("Error opteniendo la información");
     }
   };
 
@@ -33,7 +33,7 @@ const Home = () => {
       setPage(1);
       setOffset(0);
     } catch (error) {
-      console.log(error);
+      alert("Error actualizando la información");
     }
   };
 
@@ -44,7 +44,7 @@ const Home = () => {
       setPage(1);
       setOffset(0);
     } catch (error) {
-      console.log(error);
+      alert("Error Eliminando orden");
     }
   };
 
@@ -99,15 +99,15 @@ const Home = () => {
       </table>
       <div className="paginator">
         <button
-          className="paginatorButtonStyle"
+          className="paginatorButton"
           onClick={() => handlePagination(offset - limit, -1)}
           disabled={offset == 0}
         >
           Anterior
         </button>
-        <span className="currentPageStyle"> Page {page} </span>
+        <span className="currentPage"> Page {page} </span>
         <button
-          className="paginatorButtonStyle"
+          className="paginatorButton"
           onClick={() => handlePagination(offset + limit, 1)}
           disabled={orders.length < offset}
         >

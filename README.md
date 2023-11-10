@@ -1,8 +1,34 @@
-# React + Vite
+# Irvin Santiago Mitre Martinez
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# fullstack-code-challenge
 
-Currently, two official plugins are available:
+## Liverpool Client
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project consists of app react javascript tailwind.
+
+## Features
+
+- View table of orders
+- Form to upload file csv
+
+## Running this Client:
+
+To run this Client, you'll need to follow these steps:
+
+1. Install the required dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Enter in broser to local http://localhost:5173/
+
+4. Click in sidebar in Order can upload a file csv to save orders
+
+I plan to integrate a modal-based notification system to provide users with a more interactive and informative experience
